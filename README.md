@@ -1,73 +1,64 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Controle Preventido (CCB)
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Entidades
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+### Igreja
 
-## Description
+- Localidade
+- cd_endereco. [BR-15-0045, BR-15-0420...]
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Anomalia
 
-## Installation
+- id_igreja
+- Tipo
+  ```sh
+  1 Maquinas e equipamentos
+  2 Epis
+  3 Extintores
+  4 Sinalização segurança
+  5 Instalações elétricas
+  6 Hidráulicas
+  7 Portas janelas vitrôs
+  8 Portões gradil
+  9 Pisos azuleijos
+  10 Pintura
+  11 Ar-condicionado
+  12 Ventiladores
+  ```
+- Descrição
+- Prioridade (imediato (A), prazo curto 1 mês (B), prazo médio 3 meses (C))
+- Status (Vencido, Aguardo, OK)
+- Recursos (mão de obra e/ou material)
+- Valor previsto
+- Valore real
 
-```bash
-$ npm install
-```
+## Inspeção
 
-## Running the app
-
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+- número
+- descrição da inspeção
+- data do registro
+- Mês data do registro
+- Assunto
+- Sistemas vistoriados
+- Vistorias
+- Status (Sem anomalias, Com anomalias, Não realizado, Não se aplica)
+- Descrição da área
+- Local da ação
+- Evidências de não conformidade 1
+- Prioridade (imediato (A), prazo curto 1 mês (B), prazo médio 3 meses (C))
+- Ação para a não conformidade 1
+- Responsável (Compras, Eletricista, Pintor / encanador, Grupo de manutenção, Encarregado manutenção)
+- Coordenação (Encarregado, Manutenção, Administração, Ministério)
+- Impedimentos
+  sugestões:
+  ```
+  contratar serviço
+  Normal
+  Comprar material
+  Sem impedimento
+  Em tempos não chuvosos
+  Esta em conformidade com a nr-35
+  Esta em conformidade com a nr-10
+  Feito reparo laje
+  Esta em conformidade com a ANVISA
+  ```
