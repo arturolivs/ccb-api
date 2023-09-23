@@ -2,10 +2,10 @@
 
 ## Entidades
 
-### Igreja
+### Igreja (Church)
 
-- Localidade
-- cd_endereco. [BR-15-0045, BR-15-0420...]
+- locale: Localidade da igreja
+- cd_address: Código do endereço [BR-15-0045, BR-15-0420...]
 
 ## Anomalia
 
