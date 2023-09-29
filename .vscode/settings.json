@@ -2,5 +2,9 @@
   "editor.formatOnSave": true,
   "eslint.format.enable": true,
   "prettier.semi": false,
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma",
+    "editor.formatOnSave": true
+  }
 }
