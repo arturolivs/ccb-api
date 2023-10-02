@@ -1,6 +1,6 @@
 import { EntityValidationError } from '../errors/validation-error'
+import ChurchValidationService from '../validators/church/church.validator'
 import { Entity, EntityProps } from './entity'
-import ChurchValidationService from './validators/church/church.validator'
 
 export interface ChurchProps extends EntityProps {
   locale: string

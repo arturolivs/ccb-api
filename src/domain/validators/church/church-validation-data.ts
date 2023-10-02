@@ -5,8 +5,7 @@ import {
   IsString,
   MaxLength,
 } from 'class-validator'
-
-import { ChurchProps } from '../../church.entity'
+import { ChurchProps } from '@domain/models/church.entity'
 
 export class ChurchValidationData {
   @MaxLength(16)
