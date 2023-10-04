@@ -16,5 +16,5 @@ model Church {
   cd_address String   @db.VarChar(16)
   createdAt  DateTime @default(now())
 
-  @@map("churchs")
+  @@map("churches")
 }
