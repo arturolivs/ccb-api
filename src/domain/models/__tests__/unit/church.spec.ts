@@ -1,5 +1,5 @@
 import { Church, ChurchProps } from '../../church.entity'
-import { ChurchDataBuilder } from '../../testing/helpers/church-data-builder'
+import { ChurchDataBuilder } from '../../../testing/helpers/church-data-builder'
 
 describe('Church unit tests', () => {
   let props: ChurchProps
