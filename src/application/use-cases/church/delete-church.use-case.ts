@@ -1,5 +1,5 @@
 import { ChurchRepository } from '@/domain/repositories/church.repository'
-import { UseCase } from '../use-case'
+import { UseCase } from '../use-case.interface'
 
 export type DeleteChurchInput = {
   id: string

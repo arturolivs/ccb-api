@@ -1,4 +1,4 @@
-import { CreateChurchUseCase } from '@/application/usecases/church/create-church.usecase'
+import { CreateChurchUseCase } from '@/application/use-cases/church/create-church.use-case'
 import { Body, Controller, Post } from '@nestjs/common'
 import { CreateChurchDto } from '../dto/create-church.dto'
 import { Church } from '@/domain/models/church.entity'

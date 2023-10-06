@@ -1,5 +1,5 @@
 import { ChurchRepository } from '@/domain/repositories/church.repository'
-import { CreateChurchUseCase } from '../create-church.usecase'
+import { CreateChurchUseCase } from '../create-church.use-case'
 import { createMockRepository } from '@/domain/testing/helpers/repository.mock'
 import { ChurchDataBuilder } from '@/domain/testing/helpers/church-data-builder'
 

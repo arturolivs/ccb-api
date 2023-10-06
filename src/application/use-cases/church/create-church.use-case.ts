@@ -1,5 +1,5 @@
 import { ChurchRepository } from '@/domain/repositories/church.repository'
-import { UseCase } from '../use-case'
+import { UseCase } from '../use-case.interface'
 import { Church, ChurchProps } from '@/domain/models/church.entity'
 
 export type CreateChurchInput = {

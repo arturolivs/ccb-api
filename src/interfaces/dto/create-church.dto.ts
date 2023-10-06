@@ -1,4 +1,4 @@
-import { CreateChurchInput } from '@/application/usecases/church/create-church.usecase'
+import { CreateChurchInput } from '@/application/use-cases/church/create-church.use-case'
 
 export class CreateChurchDto implements CreateChurchInput {
   locale: string

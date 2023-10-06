@@ -1,7 +1,7 @@
 import {
   DeleteChurchUseCase,
   DeleteChurchOutput,
-} from '../delete-church.usecase'
+} from '../delete-church.use-case'
 import { createMockRepository } from '@/domain/testing/helpers/repository.mock'
 import { ChurchRepository } from '@/domain/repositories/church.repository'
 
