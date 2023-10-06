@@ -7,23 +7,26 @@ export class ChurchPrismaRepository implements ChurchRepository {
   constructor(private prismaService: PrismaService) {}
 
   async create(entity: Church): Promise<Church> {
-    console.log(entity.toJSON())
     const result = await this.prismaService.church.create({
       data: entity.toJSON(),
     })
 
     return new Church(result)
   }
+
+  async findAll(): Promise<any> {
+    return await this.prismaService.church.findMany()
+  }
+
   byId(id: string): Promise<Church> {
     return this._get(id)
   }
-  findAll(): Promise<Church[]> {
-    throw new Error('Method not implemented.')
-  }
+
   update(entity: Church): Promise<void> {
     console.log(entity)
     throw new Error('Method not implemented.')
   }
+
   delete(id: string): Promise<void> {
     console.log(id)
     throw new Error('Method not implemented.')

@@ -4,6 +4,7 @@ import { ChurchesController } from '../controllers/churches.controller'
 import { PrismaService } from '@/infra/database/prisma/prisma.service'
 import { ChurchPrismaRepository } from '@/infra/database/prisma/repositories/church-prisma.repository'
 import { CreateChurchUseCase } from '@/application/use-cases/church/create-church.use-case'
+import { ListChurchesUseCase } from '@/application/use-cases/church/list-churches.use-case'
 import { ChurchRepository } from '@/domain/repositories/church.repository'
 
 @Module({
@@ -24,6 +25,13 @@ import { ChurchRepository } from '@/domain/repositories/church.repository'
       provide: CreateChurchUseCase,
       useFactory: (churchRepository: ChurchRepository) => {
         return new CreateChurchUseCase(churchRepository)
+      },
+      inject: ['ChurchRepository'],
+    },
+    {
+      provide: ListChurchesUseCase,
+      useFactory: (churchRepository: ChurchRepository) => {
+        return new ListChurchesUseCase(churchRepository)
       },
       inject: ['ChurchRepository'],
     },

@@ -15,8 +15,8 @@ export class CreateChurchUseCase
   constructor(private churchRepository: ChurchRepository) {}
 
   async execute(input: CreateChurchInput): Promise<CreateChurchOutput> {
-    const entity = new Church(input)
-    const newChurch = await this.churchRepository.create(entity)
+    const church = new Church(input)
+    const newChurch = await this.churchRepository.create(church)
     return newChurch.toJSON()
   }
 }
