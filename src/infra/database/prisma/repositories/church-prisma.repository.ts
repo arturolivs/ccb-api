@@ -6,9 +6,13 @@ import { ChurchModelMapper } from '../models/church-model.mapper'
 export class ChurchPrismaRepository implements ChurchRepository {
   constructor(private prismaService: PrismaService) {}
 
-  create(entity: Church): Promise<void> {
-    console.log(entity)
-    throw new Error('Method not implemented.')
+  async create(entity: Church): Promise<Church> {
+    console.log(entity.toJSON())
+    const result = await this.prismaService.church.create({
+      data: entity.toJSON(),
+    })
+
+    return new Church(result)
   }
   byId(id: string): Promise<Church> {
     return this._get(id)
