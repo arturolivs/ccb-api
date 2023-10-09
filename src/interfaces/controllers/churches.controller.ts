@@ -2,7 +2,7 @@ import { CreateChurchUseCase } from '@/application/use-cases/church/create-churc
 import { ListChurchesUseCase } from '@/application/use-cases/church/list-churches.use-case'
 import { Body, Controller, Get, Post } from '@nestjs/common'
 import { CreateChurchDto } from '../dto/create-church.dto'
-import { Church } from '@/domain/models/church.entity'
+import { ChurchEntity } from '@/domain/models/church.entity'
 
 @Controller('churches')
 export class ChurchesController {
@@ -14,7 +14,7 @@ export class ChurchesController {
   @Post()
   async create(@Body() createChurchDto: CreateChurchDto) {
     const output = await this.createChurchUseCase.execute(createChurchDto)
-    return new Church(output).toJSON()
+    return new ChurchEntity(output).toJSON()
   }
 
   @Get()

@@ -1,20 +1,17 @@
 import { ChurchRepository } from '@/domain/repositories/church.repository'
 import { UseCase } from '../use-case.interface'
-import { Church } from '@/domain/models/church.entity'
+import { TChurch } from '@/domain/models/church.entity'
 
-export type ListChurchesInput = {
-  locale: string
-  cd_address: string
-}
+export type ListChurchesInput = void
 
-export type ListChurchOutput = Church[]
+export type ListChurchesOutput = TChurch[]
 
 export class ListChurchesUseCase
-  implements UseCase<ListChurchesInput, ListChurchOutput>
+  implements UseCase<ListChurchesInput, ListChurchesOutput>
 {
   constructor(private churchRepository: ChurchRepository) {}
 
-  async execute(): Promise<ListChurchOutput> {
+  async execute(): Promise<ListChurchesOutput> {
     return await this.churchRepository.findAll()
   }
 }

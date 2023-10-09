@@ -1,4 +1,4 @@
-import { Church } from '@/domain/models/church.entity'
+import { ChurchEntity } from '@/domain/models/church.entity'
 import { Church as PrismaChurch } from '@prisma/client'
 
 export class ChurchModelMapper {
@@ -10,7 +10,7 @@ export class ChurchModelMapper {
     }
 
     try {
-      return new Church(data, id)
+      return new ChurchEntity(data, id).toJSON()
     } catch {
       throw new Error('Church entity not be loaded')
     }

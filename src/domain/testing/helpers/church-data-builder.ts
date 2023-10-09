@@ -1,12 +1,12 @@
 import { faker } from '@faker-js/faker'
-import { ChurchProps } from '../../models/church.entity'
+import { TChurch } from '../../models/church.entity'
 
 type ChurchDataBuilderProps = {
   locale?: string
   cd_address?: string
 }
 
-export function ChurchDataBuilder(props: ChurchDataBuilderProps): ChurchProps {
+export function ChurchDataBuilder(props: ChurchDataBuilderProps): TChurch {
   return {
     locale: props.locale ?? faker.location.city(),
     cd_address: props.locale ?? faker.location.buildingNumber(),

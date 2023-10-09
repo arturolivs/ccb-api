@@ -1,13 +1,13 @@
-import { Church, ChurchProps } from '../../church.entity'
+import { ChurchEntity, TChurch } from '../../church.entity'
 import { ChurchDataBuilder } from '../../../testing/helpers/church-data-builder'
 
 describe('Church unit tests', () => {
-  let props: ChurchProps
-  let sut: Church
+  let props: TChurch
+  let sut: ChurchEntity
 
   beforeEach(() => {
     props = ChurchDataBuilder({})
-    sut = new Church(props)
+    sut = new ChurchEntity(props)
   })
 
   it('should create a church on constructor method', () => {
@@ -16,7 +16,8 @@ describe('Church unit tests', () => {
   })
 
   it.skip('should validate a church on constructor method', () => {
-    const createInvalidChurch = () => new Church({ cd_address: '', locale: '' })
+    const createInvalidChurch = () =>
+      new ChurchEntity({ cd_address: '', locale: '' })
     createInvalidChurch()
     // expect(() => {
     //   createInvalidChurch()

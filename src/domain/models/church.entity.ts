@@ -1,15 +1,15 @@
 import { EntityValidationError } from '../errors/validation-error'
 import ChurchValidationService from '../validators/church/church.validator'
-import { Entity, EntityProps } from './entity'
+import { Entity, TEntity } from './entity'
 
-export interface ChurchProps extends EntityProps {
+export type TChurch = TEntity & {
   locale: string
   cd_address: string
 }
 
-export class Church extends Entity<ChurchProps> {
+export class ChurchEntity extends Entity<TChurch> {
   constructor(
-    public readonly props: ChurchProps,
+    public readonly props: TChurch,
     id?: string,
   ) {
     super(props, id)
