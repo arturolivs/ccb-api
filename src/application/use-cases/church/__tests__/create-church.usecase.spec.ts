@@ -1,21 +1,22 @@
 import { ChurchRepository } from '@/domain/repositories/church.repository'
 import { CreateChurchUseCase } from '../create-church.use-case'
 import { createMockRepository } from '@/domain/testing/helpers/repository.mock'
-import { ChurchDataBuilder } from '@/domain/testing/helpers/church-data-builder'
+import { churchDataBuilder } from '@/domain/testing/helpers/church-data-builder'
+import { TChurch } from '@/domain/models/church.entity'
 
 describe('Create church use case unit tests', () => {
   let sut: CreateChurchUseCase
   let repository: ChurchRepository
 
   beforeEach(() => {
-    repository = createMockRepository()
+    repository = createMockRepository<TChurch>()
     sut = new CreateChurchUseCase(repository)
   })
 
   it('Should create a church', async () => {
     const spyInsert = jest.spyOn(repository, 'create')
 
-    const { cd_address, locale } = ChurchDataBuilder({})
+    const { cd_address, locale } = churchDataBuilder({})
     const result = await sut.execute({
       cd_address,
       locale,

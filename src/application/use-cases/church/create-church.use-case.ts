@@ -1,11 +1,12 @@
 import { ChurchRepository } from '@/domain/repositories/church.repository'
 import { UseCase } from '../use-case.interface'
-import { ChurchEntity, TChurch } from '@/domain/models/church.entity'
+import {
+  ChurchEntity,
+  TChurch,
+  TChurchBase,
+} from '@/domain/models/church.entity'
 
-export type CreateChurchInput = {
-  locale: string
-  cd_address: string
-}
+export type CreateChurchInput = TChurchBase
 
 export type CreateChurchOutput = TChurch
 

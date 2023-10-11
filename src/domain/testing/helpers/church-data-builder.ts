@@ -6,7 +6,7 @@ type ChurchDataBuilderProps = {
   cd_address?: string
 }
 
-export function ChurchDataBuilder(props: ChurchDataBuilderProps): TChurch {
+export function churchDataBuilder(props: ChurchDataBuilderProps): TChurch {
   return {
     locale: props.locale ?? faker.location.city(),
     cd_address: props.locale ?? faker.location.buildingNumber(),
