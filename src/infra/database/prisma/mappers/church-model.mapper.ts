@@ -10,7 +10,7 @@ export class ChurchModelMapper {
     }
 
     try {
-      return new ChurchEntity(data, id).toJSON()
+      return new ChurchEntity(data, id)
     } catch {
       throw new Error('Church entity not be loaded')
     }

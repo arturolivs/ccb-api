@@ -1,17 +1,17 @@
 import { EntityValidationError } from '../errors/validation-error'
-import ChurchValidationService from '../validators/church/church.validator'
-import { Entity, TEntity } from './entity'
+import ChurchValidator from '../validators/church/church.validator'
+import { Entity, EntityProps } from './entity'
 
-export type TChurchBase = {
+export type ChurchBaseProps = {
   locale: string
   cd_address: string
 }
 
-export type TChurch = TEntity & TChurchBase
+export type ChurchProps = EntityProps & ChurchBaseProps
 
-export class ChurchEntity extends Entity<TChurch> {
+export class ChurchEntity extends Entity<ChurchProps> {
   constructor(
-    public readonly props: TChurch,
+    public readonly props: ChurchProps,
     id?: string,
   ) {
     super(props, id)
@@ -19,10 +19,10 @@ export class ChurchEntity extends Entity<TChurch> {
   }
 
   public validateProps() {
-    const churchValidator = new ChurchValidationService()
+    const validator = new ChurchValidator()
 
-    if (!churchValidator.validate(this.props)) {
-      throw new EntityValidationError(churchValidator.errors)
+    if (!validator.validate(this.props)) {
+      throw new EntityValidationError(validator.errors)
     }
   }
 }

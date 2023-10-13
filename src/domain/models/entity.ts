@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid'
 
-export type TEntity = {
+export type EntityProps = {
   id?: string
   createdAt?: Date
 }

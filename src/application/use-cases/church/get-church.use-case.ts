@@ -1,10 +1,10 @@
 import { ChurchRepository } from '@/domain/repositories/church.repository'
 import { UseCase } from '../use-case.interface'
-import { TChurch } from '@/domain/models/church.entity'
+import { ChurchEntity } from '@/domain/models/church.entity'
 
 export type GetChurchInput = string
 
-export type GetChurchOutput = TChurch
+export type GetChurchOutput = ChurchEntity
 
 export class GetChurchUseCase
   implements UseCase<GetChurchInput, GetChurchOutput>

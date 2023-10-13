@@ -5,9 +5,10 @@ import {
   IsString,
   MaxLength,
 } from 'class-validator'
-import { TChurch } from '@domain/models/church.entity'
 
-export class ChurchValidationData {
+import { ChurchProps } from '@domain/models/church.entity'
+
+export class ChurchRules {
   @MaxLength(16)
   @IsString()
   @IsNotEmpty()
@@ -22,7 +23,7 @@ export class ChurchValidationData {
   @IsOptional()
   createdAt?: Date
 
-  constructor({ cd_address, locale, createdAt }: TChurch) {
+  constructor({ cd_address, locale, createdAt }: ChurchProps) {
     Object.assign(this, { cd_address, locale, createdAt })
   }
 }

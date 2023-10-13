@@ -2,14 +2,14 @@ import { ChurchRepository } from '@/domain/repositories/church.repository'
 import { CreateChurchUseCase } from '../create-church.use-case'
 import { createMockRepository } from '@/domain/testing/helpers/repository.mock'
 import { churchDataBuilder } from '@/domain/testing/helpers/church-data-builder'
-import { TChurch } from '@/domain/models/church.entity'
+import { ChurchEntity } from '@/domain/models/church.entity'
 
 describe('Create church use case unit tests', () => {
   let sut: CreateChurchUseCase
   let repository: ChurchRepository
 
   beforeEach(() => {
-    repository = createMockRepository<TChurch>()
+    repository = createMockRepository<ChurchEntity>()
     sut = new CreateChurchUseCase(repository)
   })
 

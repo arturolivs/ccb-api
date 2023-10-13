@@ -1,14 +1,10 @@
 import { ChurchRepository } from '@/domain/repositories/church.repository'
 import { UseCase } from '../use-case.interface'
-import {
-  ChurchEntity,
-  TChurch,
-  TChurchBase,
-} from '@/domain/models/church.entity'
+import { ChurchEntity, ChurchBaseProps } from '@/domain/models/church.entity'
 
-export type CreateChurchInput = TChurchBase
+export type CreateChurchInput = ChurchBaseProps
 
-export type CreateChurchOutput = TChurch
+export type CreateChurchOutput = ChurchEntity
 
 export class CreateChurchUseCase
   implements UseCase<CreateChurchInput, CreateChurchOutput>
@@ -16,7 +12,7 @@ export class CreateChurchUseCase
   constructor(private churchRepository: ChurchRepository) {}
 
   async execute(input: CreateChurchInput): Promise<CreateChurchOutput> {
-    const church = new ChurchEntity(input).toJSON()
+    const church = new ChurchEntity(input)
     return await this.churchRepository.create(church)
   }
 }

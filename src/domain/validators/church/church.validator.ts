@@ -1,8 +1,8 @@
 import { ClassValidatorFields } from '../class-validator-fields'
-import { ChurchValidationData } from './church-validation-data'
+import { ChurchRules } from './church-validations-rules'
 
-export default class ChurchValidationService extends ClassValidatorFields<ChurchValidationData> {
-  validate(data: ChurchValidationData): boolean {
-    return super.validate(new ChurchValidationData(data))
+export default class ChurchValidator extends ClassValidatorFields<ChurchRules> {
+  validate(data: ChurchRules): boolean {
+    return super.validate(new ChurchRules(data))
   }
 }

@@ -1,11 +1,8 @@
 import { validateSync, ValidationError } from 'class-validator'
-import {
-  FieldsErrors,
-  ValidatorFieldsInterface,
-} from './validator-fields.interface'
+import { FieldsErrors, ValidatorFields } from './validator-fields.interface'
 
 export abstract class ClassValidatorFields<TData>
-  implements ValidatorFieldsInterface<TData>
+  implements ValidatorFields<TData>
 {
   errors: FieldsErrors = {}
   validatedData: TData

@@ -1,7 +1,7 @@
-import { TEntity } from '@/domain/models/entity'
+import { Entity } from '@/domain/models/entity'
 import { Repository } from '@/domain/repositories/repository.interface'
 
-export const createMockRepository = <T extends TEntity>(): Repository<T> => ({
+export const createMockRepository = <E extends Entity>(): Repository<E> => ({
   create: jest.fn(),
   byId: jest.fn(),
   findAll: jest.fn(),

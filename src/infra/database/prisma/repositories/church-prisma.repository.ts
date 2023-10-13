@@ -1,4 +1,4 @@
-import { ChurchEntity, TChurch } from '@/domain/models/church.entity'
+import { ChurchEntity } from '@/domain/models/church.entity'
 import { ChurchRepository } from '@/domain/repositories/church.repository'
 import { PrismaService } from '../prisma.service'
 import { ChurchModelMapper } from '../mappers/church-model.mapper'
@@ -6,24 +6,23 @@ import { ChurchModelMapper } from '../mappers/church-model.mapper'
 export class ChurchPrismaRepository implements ChurchRepository {
   constructor(private prismaService: PrismaService) {}
 
-  async create(data: TChurch): Promise<TChurch> {
-    const x = new ChurchEntity(data)
+  async create(data: ChurchEntity): Promise<ChurchEntity> {
     const result = await this.prismaService.church.create({
-      data: x.toJSON(),
+      data: data.toJSON(),
     })
 
-    return result
+    return ChurchModelMapper.toEntity(result)
   }
 
   async findAll(): Promise<any> {
     return await this.prismaService.church.findMany()
   }
 
-  async byId(id: string): Promise<TChurch> {
+  async byId(id: string): Promise<ChurchEntity> {
     return await this._get(id)
   }
 
-  update(entity: TChurch): Promise<void> {
+  update(entity: ChurchEntity): Promise<void> {
     console.log(entity)
     throw new Error('Method not implemented.')
   }
@@ -33,7 +32,7 @@ export class ChurchPrismaRepository implements ChurchRepository {
     throw new Error('Method not implemented.')
   }
 
-  protected async _get(id: string): Promise<TChurch> {
+  protected async _get(id: string): Promise<ChurchEntity> {
     try {
       const church = await this.prismaService.church.findUnique({
         where: { id },

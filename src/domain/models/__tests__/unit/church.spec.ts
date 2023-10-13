@@ -1,8 +1,8 @@
-import { ChurchEntity, TChurch } from '../../church.entity'
+import { ChurchEntity, ChurchProps } from '../../church.entity'
 import { churchDataBuilder } from '../../../testing/helpers/church-data-builder'
 
 describe('Church unit tests', () => {
-  let props: TChurch
+  let props: ChurchProps
   let sut: ChurchEntity
 
   beforeEach(() => {
