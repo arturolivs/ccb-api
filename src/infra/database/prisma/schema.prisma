@@ -12,8 +12,8 @@ datasource db {
 
 model Church {
   id         String   @id @db.Uuid
+  cd_address String   @unique @db.VarChar(16)
   locale     String   @db.VarChar(64)
-  cd_address String   @db.VarChar(16)
   createdAt  DateTime @default(now())
 
   @@map("churches")
