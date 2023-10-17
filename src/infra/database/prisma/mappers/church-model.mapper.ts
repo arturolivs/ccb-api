@@ -9,10 +9,6 @@ export class ChurchModelMapper {
       createdAt,
     }
 
-    try {
-      return new ChurchEntity(data, id)
-    } catch {
-      throw new Error('Church entity not be loaded')
-    }
+    return new ChurchEntity(data, id)
   }
 }

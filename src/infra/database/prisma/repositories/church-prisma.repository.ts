@@ -2,6 +2,7 @@ import { ChurchEntity } from '@/domain/models/church.entity'
 import { ChurchRepository } from '@/domain/repositories/church.repository'
 import { PrismaService } from '../prisma.service'
 import { ChurchModelMapper } from '../mappers/church-model.mapper'
+import { NotFoundError } from '@/domain/errors/not-found-error'
 
 export class ChurchPrismaRepository implements ChurchRepository {
   constructor(private prismaService: PrismaService) {}
@@ -22,14 +23,21 @@ export class ChurchPrismaRepository implements ChurchRepository {
     return await this._get(id)
   }
 
-  update(entity: ChurchEntity): Promise<void> {
-    console.log(entity)
-    throw new Error('Method not implemented.')
+  async update(entity: ChurchEntity): Promise<void> {
+    await this._get(entity.id)
+    await this.prismaService.church.update({
+      data: entity.toJSON(),
+      where: {
+        id: entity.id,
+      },
+    })
   }
 
-  delete(id: string): Promise<void> {
-    console.log(id)
-    throw new Error('Method not implemented.')
+  async delete(id: string): Promise<void> {
+    await this._get(id)
+    await this.prismaService.church.delete({
+      where: { id },
+    })
   }
 
   protected async _get(id: string): Promise<ChurchEntity> {
@@ -40,7 +48,7 @@ export class ChurchPrismaRepository implements ChurchRepository {
 
       return ChurchModelMapper.toEntity(church)
     } catch {
-      throw new Error(`Church model not found for id ${id}`)
+      throw new NotFoundError(`Church model not found for id ${id}`)
     }
   }
 }

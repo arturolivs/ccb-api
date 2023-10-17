@@ -1,4 +1,4 @@
-import { EntityValidationError } from '../errors/validation-error'
+import { EntityValidationError } from '../errors/entity-validation-error'
 import ChurchValidator from '../validators/church/church.validator'
 import { Entity, EntityProps } from './entity'
 
