@@ -8,6 +8,7 @@ import { ListChurchesUseCase } from '@/application/use-cases/church/list-churche
 import { ChurchRepository } from '@/domain/repositories/church.repository'
 import { GetChurchUseCase } from '@/application/use-cases/church/get-church.use-case'
 import { DeleteChurchUseCase } from '@/application/use-cases/church/delete-church.use-case'
+import { UpdateChurchUseCase } from '@/application/use-cases/church/update-church.use-case'
 
 @Module({
   controllers: [ChurchesController],
@@ -48,6 +49,13 @@ import { DeleteChurchUseCase } from '@/application/use-cases/church/delete-churc
       provide: DeleteChurchUseCase,
       useFactory: (churchRepository: ChurchRepository) => {
         return new DeleteChurchUseCase(churchRepository)
+      },
+      inject: ['ChurchRepository'],
+    },
+    {
+      provide: UpdateChurchUseCase,
+      useFactory: (churchRepository: ChurchRepository) => {
+        return new UpdateChurchUseCase(churchRepository)
       },
       inject: ['ChurchRepository'],
     },

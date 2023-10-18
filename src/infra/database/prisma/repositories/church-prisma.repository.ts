@@ -28,19 +28,21 @@ export class ChurchPrismaRepository implements ChurchRepository {
 
   async create(data: ChurchEntity): Promise<ChurchEntity> {
     const church = await this.prismaService.church.create({
-      data: data.toJSON(),
+      data: data.formatted(),
     })
 
     return ChurchModelMapper.toEntity(church)
   }
 
-  async update(entity: ChurchEntity): Promise<void> {
-    await this.prismaService.church.update({
-      data: entity.toJSON(),
+  async update(entity: ChurchEntity): Promise<ChurchEntity> {
+    const church = await this.prismaService.church.update({
+      data: entity.formatted(),
       where: {
         id: entity.id,
       },
     })
+
+    return ChurchModelMapper.toEntity(church)
   }
 
   async delete(id: string): Promise<void> {

@@ -1,3 +1,3 @@
 import { ChurchBaseProps } from '@/domain/models/church.entity'
 
-export type CreateChurchDto = ChurchBaseProps
+export type UpdateChurchDto = ChurchBaseProps

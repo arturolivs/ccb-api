@@ -39,7 +39,7 @@ describe('Entity unit tests', () => {
     const id = faker.string.uuid()
     const entity = new StubEntity(props, id)
 
-    expect(entity.toJSON()).toStrictEqual({
+    expect(entity.formatted()).toStrictEqual({
       id,
       createdAt: entity.createdAt?.toISOString(),
       ...props,

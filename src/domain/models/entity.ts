@@ -25,7 +25,7 @@ export abstract class Entity<Props = any> {
     return this._createdAt
   }
 
-  toJSON(): { id: string; createdAt?: string } & Props {
+  formatted(): { id: string; createdAt?: string } & Props {
     return {
       id: this._id,
       createdAt: this._createdAt?.toISOString(),
